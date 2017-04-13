@@ -6,4 +6,5 @@ http://robozebra.cz/
 
 
 Can be ran by e.g. scheduling a cron job:
-> * * * * * /usr/bin/curl --silent localhost:8000/notif/fetch-loans/
+
+    * * * * * /usr/bin/curl --silent localhost:8000/notif/fetch-loans/
