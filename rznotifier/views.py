@@ -1,4 +1,5 @@
 import logging
+import sys
 
 import requests
 from django.http import HttpResponse
@@ -6,6 +7,9 @@ from slacker import Slacker
 
 from .models import Loan
 from .utils import SlackLog
+
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 logger = logging.getLogger('robozebra.Notifier')
 
@@ -19,7 +23,7 @@ def fetch_loans(request):
     # TODO: Move last_tun to DB: unsynced when there is more workers
     marketplace_url = 'https://api.zonky.cz/loans/marketplace'
     try:
-        count = 20
+        count = '20'
         if 'count' in request.GET:
             count = request.GET['count']
         logger.debug('Fetching {} loans from {}'.format(count, marketplace_url))
