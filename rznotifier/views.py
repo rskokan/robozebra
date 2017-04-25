@@ -28,7 +28,7 @@ def fetch_loans(request):
             count = request.GET['count']
         logger.debug('Fetching {} loans from {}'.format(count, marketplace_url))
 
-        headers = {'X-Size': count}
+        headers = {'X-Size': count, 'X-Order': '-datePublished'}
         r = requests.get(marketplace_url, headers=headers)
         loans = r.json()
         logger.debug('Fetched loans: {}'.format(loans))
