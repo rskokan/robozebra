@@ -1,5 +1,4 @@
 import logging
-import sys
 
 import requests
 from django.http import HttpResponse
@@ -8,8 +7,6 @@ from slacker import Slacker
 from .models import Loan
 from .utils import SlackLog
 
-reload(sys)
-sys.setdefaultencoding('utf-8')
 
 logger = logging.getLogger('robozebra.Notifier')
 
